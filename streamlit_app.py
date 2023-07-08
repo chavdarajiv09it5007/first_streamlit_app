@@ -101,17 +101,29 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # writes the normalise dta to scerrn
 streamlit.dataframe(fruityvice_normalized)
 
+
+
+
 #chater 12 badge2
 #Let's Set Up Streamlit to Work with Snowflake
 import snowflake.connector
 
 #Let's Query Our Trial Account Metadata 
+#my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+#my_cur = my_cnx.cursor()
+#my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+#my_data_row = my_cur.fetchone()
+#streamlit.text("Hello from Snowflake:")
+#streamlit.text(my_data_row)
+
+
+
+#Let's Query Some Data, Instead
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_cur.execute("select * from fruit_load_list")
 my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
+streamlit.text("The fruit load list contains:")
 streamlit.text(my_data_row)
-
 
 
