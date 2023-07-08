@@ -101,4 +101,7 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # writes the normalise dta to scerrn
 streamlit.dataframe(fruityvice_normalized)
 
+#chater 12 badge2
+import snowflake.connector
+
 
