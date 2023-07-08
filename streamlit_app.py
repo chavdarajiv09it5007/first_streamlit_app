@@ -64,15 +64,21 @@ streamlit.dataframe(fruits_to_show)
 #streamlit.text(fruityvice_response.json())
 
 
-streamlit.header("Fruityvice Fruit Advice!")
-import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json())  # writes json data to screen
+#streamlit.header("Fruityvice Fruit Advice!")
+#import requests
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+#streamlit.text(fruityvice_response.json())  # writes json data to screen
 
 # take the jsoan version and normalize it 
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # writes the normalise dta to scerrn
-streamlit.dataframe(fruityvice_normalized)
+#streamlit.dataframe(fruityvice_normalized)
 
+
+
+#Let's removed the line of raw JSON, and separate the base URL from the fruit name (which will make it easier to use a variable there).
+streamlit.header("Fruityvice Fruit Advice!")
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
 
